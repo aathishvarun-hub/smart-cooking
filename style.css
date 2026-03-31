@@ -1,0 +1,106 @@
+:root {
+    --primary: #0d6efd;
+    --muted: #6c757d;
+    --bg: #f8f9fa;
+    --card-radius: 12px;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--bg);
+    color: #222;
+}
+
+.navbar-brand {
+    letter-spacing: .04em;
+}
+
+.card img {
+    object-fit: cover;
+    height: 220px;
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+}
+
+#recipes-list .card {
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+#recipes-list .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .12);
+}
+
+#recipeModal .img-fluid {
+    max-height: 320px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#ingredientsList li,
+#cookingSteps li,
+#timedSteps li {
+    margin-bottom: .4rem;
+}
+
+#stepTimer {
+    font-size: 1.1rem;
+}
+
+.btn {
+    border-radius: 8px;
+}
+
+/* Voice button & indicator */
+#voice-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.15s ease;
+    z-index: 2;
+}
+
+#voice-btn.active {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+#voice-indicator {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    font-weight: bold;
+    gap: 4px;
+    color: red;
+    animation: pulse 1s infinite;
+    z-index: 1;
+}
+
+#voice-indicator.d-none {
+    display: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateY(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateY(-50%) scale(1.2);
+    }
+
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+}

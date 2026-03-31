@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Smart Cooking - Recipe Finder</title>
+
+    <!-- Google font & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e575785a79.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <img src="black-cooking-logo-design-picture-260nw-2266731585-removebg-preview.png"
+                    alt="Smart Cooking Logo" width="40" height="40" class="me-2">
+                SMART COOKING
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-section">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item" id="login-link"><a class="nav-link" href="#" id="login-btn">Login</a></li>
+                    <li class="nav-item" id="signup-link"><a class="nav-link" href="#" id="signup-btn">Signup</a></li>
+                    <li class="nav-item d-none" id="user-greet">
+                        <span class="nav-link text-white fw-bold" id="username">Welcome, User</span>
+                    </li>
+                    <li class="nav-item d-none" id="logout-link"><a class="nav-link" href="#" id="logout-btn">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home / Search -->
+    <main class="container mt-5 pt-4" id="home">
+        <h1 class="text-center mb-4">Find Your Yum 🍽️</h1>
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-md-8 position-relative d-flex">
+                <input id="food-input" class="form-control" placeholder="Search recipes (press Enter)..." />
+                <button id="voice-btn" class="btn btn-outline-primary" title="Search by voice">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <div id="voice-indicator" class="d-none">
+                    <i class="fas fa-circle text-danger"></i> Listening...
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipes grid (search results) -->
+        <ul id="recipes-list" class="row row-cols-1 row-cols-md-4 g-4 list-unstyled"></ul>
+
+        <!-- Sample categories -->
+        <section class="mt-5">
+            <h2 class="mb-3">🥦 Veg Recipes</h2>
+            <div class="row g-4 mb-4" id="sample-veg">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="OIP (3).webp" class="card-img-top" alt="Paneer Butter Masala">
+                        <div class="card-body">
+                            <h5 class="card-title">Paneer Butter Masala</h5>
+                            <p class="card-text">Creamy tomato gravy with paneer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="OIP.webp" class="card-img-top" alt="Veg Pulao">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegetable Pulao</h5>
+                            <p class="card-text">Fragrant rice with veggies and spices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="OIP (1).webp" class="card-img-top" alt="Chana Masala">
+                        <div class="card-body">
+                            <h5 class="card-title">Chana Masala</h5>
+                            <p class="card-text">Spicy chickpea curry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="mb-3">🍗 Non-Veg Recipes</h2>
+            <div class="row g-4 mb-4" id="sample-nonveg">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="OIP (2).webp" class="card-img-top" alt="Butter Chicken">
+                        <div class="card-body">
+                            <h5 class="card-title">Butter Chicken</h5>
+                            <p class="card-text">Rich, buttery tomato chicken curry.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="38906976401_27bd27e344_o.jpg" class="card-img-top" alt="Fish Fry">
+                        <div class="card-body">
+                            <h5 class="card-title">Fish Fry</h5>
+                            <p class="card-text">Crispy pan-fried fish.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="Mutton-Biryani.jpg" class="card-img-top" alt="Mutton Biryani">
+                        <div class="card-body">
+                            <h5 class="card-title">Mutton Biryani</h5>
+                            <p class="card-text">Layered spiced rice with mutton.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="mb-3">🍰 Desserts</h2>
+            <div class="row g-4 mb-4" id="sample-dessert">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="OIP (4).webp" class="card-img-top" alt="Gulab Jamun">
+                        <div class="card-body">
+                            <h5 class="card-title">Gulab Jamun</h5>
+                            <p class="card-text">Soft milk dumplings in sugar syrup.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="photo-1606890737304-57a1ca8a5b62.jpeg" class="card-img-top" alt="Chocolate Cake">
+                        <div class="card-body">
+                            <h5 class="card-title">Chocolate Cake</h5>
+                            <p class="card-text">Moist chocolate cake with frosting.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="paneer_kheer_1726480694797.avif" class="card-img-top" alt="Kheer">
+                        <div class="card-body">
+                            <h5 class="card-title">Kheer</h5>
+                            <p class="card-text">Creamy rice pudding with cardamom.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Section -->
+    <section id="about-section" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="text-primary mb-3">About Smart Cooking</h2>
+            <p class="mx-auto" style="max-width:800px;">
+                Smart Cooking helps you discover recipes, scale ingredients, and follow step-by-step cooking processes with timers.
+                Choose flame level and servings — everything updates inside the app so you never leave the page.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-3">Contact</h2>
+            <p>Email: support@smartcooking.com · Phone: +91 98765 43210</p>
+        </div>
+    </section>
+
+    <!-- Recipe Modal -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalTitle"></h5>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modal-image" class="img-fluid mb-3" style="border-radius:10px;" alt="">
+                    <p><strong>Meal Type:</strong> <span id="modal-mealType"></span></p>
+                    <p><strong>Diet Labels:</strong> <span id="modal-dietLabels"></span></p>
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Flame Level</label>
+                            <select id="flameSelect" class="form-select">
+                                <option value="Low">Low</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Quantity</label>
+                            <select id="quantitySelect" class="form-select">
+                                <option value="1" selected>1×</option>
+                                <option value="2">2×</option>
+                                <option value="3">3×</option>
+                            </select>
+                        </div>
+                    </div>
+                    <h6>Ingredients</h6>
+                    <ul id="ingredientsList" class="mb-3"></ul>
+                    <h6>Cooking Steps</h6>
+                    <ol id="cookingSteps" class="mb-3"></ol>
+                    <h6>Step-by-Step Timer</h6>
+                    <ol id="timedSteps" class="mb-2"></ol>
+                    <div id="stepTimer" class="fw-bold text-danger mb-2"></div>
+                    <div class="mb-3">
+                        <button id="startStepsBtn" class="btn btn-success">Start</button>
+                        <button id="stopStepsBtn" class="btn btn-danger ms-2">Stop</button>
+                        <button id="pauseStepsBtn" class="btn btn-warning ms-2 d-none">Pause</button>
+                        <button id="resumeStepsBtn" class="btn btn-info ms-2 d-none">Resume</button>
+                    </div>
+                    <p id="cookingTime" class="text-danger"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login & Signup Modals -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary">Login</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="login-form" class="modal-body">
+                    <input type="email" class="form-control mb-2" placeholder="Email" required>
+                    <input type="password" class="form-control mb-2" placeholder="Password" required>
+                    <button class="btn btn-primary w-100" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary">Signup</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="signup-form" class="modal-body">
+                    <input type="text" class="form-control mb-2" placeholder="Full name" required>
+                    <input type="email" class="form-control mb-2" placeholder="Email" required>
+                    <input type="password" class="form-control mb-2" placeholder="Password" required>
+                    <button class="btn btn-primary w-100" type="submit">Signup</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS & Main -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
